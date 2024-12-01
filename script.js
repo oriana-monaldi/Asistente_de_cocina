@@ -115,10 +115,38 @@ function handleInitialState(resultado) {
   ];
 
   if (exitCommands.some(cmd => resultado.includes(cmd))) {
-    speakAndListen("¡Gracias por usar el asistente de cocina! ¡Hasta pronto!");
-    showMessage("¡Gracias por usar el asistente de cocina! ¡Hasta pronto!", "assistant-message");
+    // Cancelar cualquier síntesis de voz en curso
+    window.speechSynthesis.cancel();
+    
+    // Detener el reconocimiento de voz de manera definitiva
+    try {
+      recognition.stop();
+    } catch (error) {
+      console.error("Error al detener el reconocimiento:", error);
+    }
+
+    // Desactivar completamente los listeners
+    recognition.onstart = null;
+    recognition.onresult = null;
+    recognition.onend = null;
+    recognition.onerror = null;
+
+    // Establecer estado de salida
     currentState = "exit";
-    recognition.stop();
+    isListening = false;
+
+    // Mensaje final
+    const utterance = new SpeechSynthesisUtterance("¡Gracias por usar el asistente de cocina! ¡Hasta pronto!");
+    utterance.lang = "es-ES";
+    utterance.onend = () => {
+      // Asegurarse de que no haya más reconocimiento
+      recognition.stop();
+    };
+    window.speechSynthesis.speak(utterance);
+
+    // Mostrar mensaje
+    showMessage("¡Gracias por usar el asistente de cocina! ¡Hasta pronto!", "assistant-message");
+
     return;
   }
 
@@ -145,6 +173,7 @@ function handleInitialState(resultado) {
     );
   }
 }
+
 function handleRecipeState(resultado) {
   buscarReceta(resultado);
 }
@@ -310,16 +339,13 @@ if (recetasDisponibles.length > 0) {
 }
 
 function handleAvailableRecipeState(resultado) {
-  // Normalize input and find recipe
   const recetaSeleccionada = Object.values(recetas).find((receta) => 
     receta.nombre.toLowerCase().includes(resultado.toLowerCase())
   );
 
   if (recetaSeleccionada) {
-    // Show recipe directly when found
     mostrarReceta(recetaSeleccionada);
   } else {
-    // If recipe not found, let user know
     speakAndListen("No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.");
     showMessage("No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.", "assistant-message");
   }
@@ -490,13 +516,16 @@ recognition.onerror = (event) => {
 };
 
 recognition.onend = () => {
-  isListening = false;
+  if (currentState === "exit") {
+    isListening = false;
+    return;
+  }
 
+  isListening = false;
   if (currentState !== "initial" && !window.speechSynthesis.speaking) {
     startRecognition();
   }
 };
-
 function handleRecipeConfirmationState(resultado) {
   const yesResponses = [
     "sí",
