@@ -11,6 +11,12 @@ let heladera = [
   "Una unidad masa quebrada", 
   "Una unidad huevo",
   "Sal y pimienta",
+  "Masa para empanadas",
+  "500g de carne picada",
+  "1 cebolla",
+  "2 huevos duros",
+  "Aceitunas verdes",
+  "Comino, sal y pimienta"
 ];
 
 let ultimaRecetaBuscada = null;
@@ -94,6 +100,8 @@ function handleInitialState(resultado) {
   const availableRecipesCommands = [
     "recetas disponibles",
     "que puedo cocinar",
+    "listar recetas", 
+     "dame la lista de recetas",
     "que hay para cocinar",
     "ver recetas",
     "mostrar recetas",
@@ -221,6 +229,7 @@ function speakAndListen(text) {
 
 function renderRecipeDisplay(receta) {
   let recetaHTML = `<h3>Receta de ${receta.nombre}</h3>
+    <p>Contiene ${receta.valorNutricional}</p>
     <h4>Ingredientes:</h4>
     <ul>
         ${receta.ingredientes
@@ -437,10 +446,10 @@ async function mostrarHeladera() {
 
 function askIfNeedMore() {
   speakAndListen(
-    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', o 'salir'."
+    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', 'conocer recetas', o 'salir'."
   );
   showMessage(
-    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', o 'salir'.",
+    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', 'conocer recetas', o 'salir'.",
     "assistant-message"
   );
 }
@@ -712,4 +721,18 @@ function verificarIngredientes(ingredientesNecesarios) {
     todoPresente: ingredientesFaltantes.length === 0,
     faltantes: ingredientesFaltantes,
   };
+}
+
+// renderiza en el html las recetas y valor nutricoinal 
+function mostrarDetallesReceta(receta) {
+  
+  const detallesReceta = `
+      <h3>${receta.nombre}</h3>
+      <p><strong>Ingredientes:</strong></p>
+      <ul>${receta.ingredientes.map(ing => `<li>${ing}</li>`).join('')}</ul>
+      <p><strong>Preparación:</strong></p>
+      <ol>${receta.pasos.map(paso => `<li>${paso}</li>`).join('')}</ol>
+      <p>< ${receta.valorNutricional || 'No disponible'}</p>
+  `;
+    document.querySelector('#detalles-receta').innerHTML = detallesReceta;
 }

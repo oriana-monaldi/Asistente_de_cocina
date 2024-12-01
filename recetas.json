@@ -12,6 +12,9 @@
             "Coloca la masa quebrada en un molde y pon las manzanas encima.",
             "Bate el huevo y pinta la tarta con él.",
             "Hornea durante 30 minutos o hasta que esté dorada."
+        ],
+        "valorNutricional": [
+            "300 calorías"       
         ]
     },
     "pasta con tomate": {
@@ -29,6 +32,9 @@
             "Añade el tomate triturado y cocina durante 10 minutos.",
             "Agrega sal y pimienta al gusto.",
             "Sirve la pasta con la salsa de tomate."
+        ],
+        "valorNutricional": [
+            "400 calorías"       
         ]
     },
     "empanadas": {
@@ -48,6 +54,9 @@
             "Agrega comino, sal y pimienta al gusto.",
             "Rellena las empanadas con la mezcla y ciérralas.",
             "Hornea durante 20 minutos a 180 grados."
+        ],
+        "valorNutricional": [
+            "500 calorías"       
         ]
     },
     "milanesa": {
@@ -64,6 +73,9 @@
             "Pasa los filetes por el huevo batido y luego por el pan rallado.",
             "Fríe en aceite caliente hasta que estén dorados.",
             "Sirve con puré de papas o ensalada."
+        ],
+        "valorNutricional": [
+            "400 calorías"       
         ]
     },
     "asado": {
@@ -80,6 +92,9 @@
             "Coloca las carnes en la parrilla y sazónalas con sal gruesa.",
             "Cocina durante 1-2 horas, volteando las piezas de carne.",
             "Sirve con ensaladas y papas."
+        ],
+        "valorNutricional": [
+            "450 calorías"       
         ]
     },
     "choripán": {
@@ -93,6 +108,9 @@
             "Asa los chorizos en la parrilla.",
             "Coloca los chorizos en panes y añade chimichurri al gusto.",
             "Sirve caliente."
+        ],
+        "valorNutricional": [
+            "320 calorías"       
         ]
     },
     "locro": {
@@ -112,6 +130,9 @@
             "Añade la cebolla, el zapallo y las papas cortadas.",
             "Cocina hasta que los ingredientes estén tiernos.",
             "Sirve caliente."
+        ],
+        "valorNutricional": [
+            "300 calorías"       
         ]
     },
     "empanadas salteñas": {
@@ -130,154 +151,9 @@
             "Sazona con comino, ají, sal y pimienta.",
             "Rellena las empanadas y ciérralas.",
             "Hornea a 180 grados durante 25 minutos."
-        ]
-    },
-    "provoleta": {
-        "nombre": "Provoleta",
-        "ingredientes": [
-            "Queso provolone",
-            "Aceite de oliva",
-            "Orégano",
-            "Ají molido"
         ],
-        "instrucciones": [
-            "Corta el queso provolone en rodajas gruesas.",
-            "Colócalo en una sartén con un poco de aceite.",
-            "Cocina hasta que el queso esté dorado y burbujeante.",
-            "Añade orégano y ají molido al gusto.",
-            "Sirve caliente."
-        ]
-    },
-    "humita": {
-        "nombre": "Humita",
-        "ingredientes": [
-            "Choclo",
-            "Queso fresco",
-            "Cebolla",
-            "Masa para empanadas",
-            "Albahaca"
-        ],
-        "instrucciones": [
-            "Ralla los granos de choclo y mézclalos con el queso y la cebolla.",
-            "Agrega albahaca picada.",
-            "Envuelve la mezcla en hojas de choclo o en masa.",
-            "Cocina al vapor durante 30 minutos."
-        ]
-    },
-    "ensalada rusa": {
-        "nombre": "Ensalada Rusa",
-        "ingredientes": [
-            "2 papas",
-            "2 zanahorias",
-            "1 taza de arvejas",
-            "Mayonesa"
-        ],
-        "instrucciones": [
-            "Hierve las papas, zanahorias y arvejas.",
-            "Corta en cubos las papas y zanahorias.",
-            "Mezcla todo con mayonesa al gusto.",
-            "Sirve frío."
-        ]
-    },
-    "pizza a la piedra": {
-        "nombre": "Pizza a la Piedra",
-        "ingredientes": [
-            "Masa para pizza",
-            "Salsa de tomate",
-            "Queso mozzarella",
-            "Ingredientes al gusto (jamón, morrón, aceitunas)"
-        ],
-        "instrucciones": [
-            "Precalienta el horno a 220 grados.",
-            "Extiende la masa y cubre con salsa de tomate.",
-            "Añade queso y los ingredientes al gusto.",
-            "Hornea durante 15 minutos o hasta que esté dorada."
-        ]
-    },
-    "torta de ricota": {
-        "nombre": "Torta de Ricota",
-        "ingredientes": [
-            "500g de ricota",
-            "2 huevos",
-            "1 taza de azúcar",
-            "1 taza de harina",
-            "Esencia de vainilla"
-        ],
-        "instrucciones": [
-            "Mezcla la ricota con los huevos, azúcar, harina y vainilla.",
-            "Vierte la mezcla en un molde enmantecado.",
-            "Hornea a 180 grados durante 40 minutos."
-        ]
-    },
-    "puchero": {
-        "nombre": "Puchero",
-        "ingredientes": [
-            "Carne de res",
-            "Verduras (zanahorias, papas, zapallo)",
-            "Choclo",
-            "Fideos"
-        ],
-        "instrucciones": [
-            "Cocina la carne con agua y sal en una olla grande.",
-            "Añade las verduras y el choclo.",
-            "Deja cocinar hasta que todo esté tierno.",
-            "Agrega fideos al gusto."
-        ]
-    },
-    "fugazzeta": {
-        "nombre": "Fugazzeta",
-        "ingredientes": [
-            "Masa para pizza",
-            "Cebolla",
-            "Queso mozzarella",
-            "Aceite de oliva",
-            "Orégano"
-        ],
-        "instrucciones": [
-            "Extiende la masa y cubre con cebolla caramelizada.",
-            "Añade queso mozzarella y hornea hasta dorarse.",
-            "Sirve con orégano y un poco de aceite de oliva."
-        ]
-    },
-    "canelones de ricota": {
-        "nombre": "Canelones de Ricota",
-        "ingredientes": [
-            "Pasta para canelones",
-            "Ricota",
-            "Salsa bechamel",
-            "Queso rallado"
-        ],
-        "instrucciones": [
-            "Rellena los canelones con ricota.",
-            "Cubre con salsa bechamel y queso rallado.",
-            "Hornea durante 20 minutos a 180 grados."
-        ]
-    },
-    "dulce de leche": {
-        "nombre": "Dulce de Leche",
-        "ingredientes": [
-            "1 litro de leche",
-            "500g de azúcar",
-            "1/2 cucharadita de bicarbonato"
-        ],
-        "instrucciones": [
-            "Cocina la leche con el azúcar a fuego bajo.",
-            "Agrega el bicarbonato y sigue cocinando hasta que espese.",
-            "Enfría y guarda en frascos herméticos."
-        ]
-    },
-    "panqueques": {
-        "nombre": "Panqueques",
-        "ingredientes": [
-            "1 taza de harina",
-            "1 taza de leche",
-            "2 huevos",
-            "Manteca"
-        ],
-        "instrucciones": [
-            "Mezcla la harina, leche y huevos.",
-            "Cocina en una sartén con manteca, formando círculos finos.",
-            "Sirve con dulce de leche o mermelada."
+        "valorNutricional": [
+            "250 calorías"
         ]
     }
 }
