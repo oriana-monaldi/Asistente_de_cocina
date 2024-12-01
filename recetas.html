@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 80%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #recipe-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .recipe-item {
+            background-color: #f44336;
+            color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #f44336;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recetas</h1>
+        <ul id="recipe-list"></ul>
+        <a href="index.html" class="back-link">Volver al Inicio</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('recetas.json')
+                .then(response => response.json())
+                .then(recipes => {
+                    const recipeList = document.getElementById('recipe-list');
+                    Object.keys(recipes).forEach(key => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = recipes[key].nombre;
+                        listItem.classList.add('recipe-item');
+                        recipeList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar las recetas:', error);
+                });
+        });
+    </script>
+</body>
+</html>

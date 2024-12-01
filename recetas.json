@@ -2,81 +2,89 @@
     "tarta de manzana": {
         "nombre": "Tarta de Manzana",
         "ingredientes": [
-            "Dos unidades manzanas", 
-            "Una unidad masa quebrada", 
-            "Una unidad huevo"
+            "Manzanas", 
+            "Masa quebrada", 
+            "Huevo"
         ],
         "instrucciones": [
             "Precalienta el horno a 180 grados.",
-            "Pela las manzanas y córtalas en rodajas finas.",
+            "Pela y corta las manzanas en rodajas finas (necesitarás 2 manzanas).",
             "Coloca la masa quebrada en un molde y pon las manzanas encima.",
-            "Bate el huevo y pinta la tarta con él.",
+            "Bate 1 huevo y pinta la tarta con él.",
             "Hornea durante 30 minutos o hasta que esté dorada."
         ],
         "valorNutricional": [
             "300 calorías"       
-        ]
+        ],
+        "imagen": "./imagenes/tartaManzana.jpg"
     },
     "pasta con tomate": {
         "nombre": "Pasta con Tomate",
         "ingredientes": [
-            "200g de pasta",
-            "400g de tomate triturado",
-            "Un diente de ajo",
+            "Pasta",
+            "Tomate triturado",
+            "Ajo",
             "Aceite de oliva",
-            "Sal y pimienta"
+            "Sal",
+            "Pimienta"
         ],
         "instrucciones": [
             "Cuece la pasta según las instrucciones del paquete.",
-            "Mientras tanto, calienta el aceite y sofríe el ajo picado.",
-            "Añade el tomate triturado y cocina durante 10 minutos.",
+            "Mientras tanto, calienta el aceite y sofríe 1 diente de ajo picado.",
+            "Añade 400g de tomate triturado y cocina durante 10 minutos.",
             "Agrega sal y pimienta al gusto.",
             "Sirve la pasta con la salsa de tomate."
         ],
         "valorNutricional": [
             "400 calorías"       
-        ]
+        ],        
+        "imagen": "./imagenes/pasta.jpg"
     },
     "empanadas": {
         "nombre": "Empanadas",
         "ingredientes": [
             "Masa para empanadas",
-            "500g de carne picada",
-            "1 cebolla",
-            "2 huevos duros",
+            "Carne picada",
+            "Cebolla",
+            "Huevos duros",
             "Aceitunas verdes",
-            "Comino, sal y pimienta"
+            "Comino",
+            "Sal",
+            "Pimienta"
         ],
         "instrucciones": [
             "Sofríe la cebolla picada en una sartén con aceite.",
-            "Añade la carne picada y cocina hasta que esté bien dorada.",
-            "Incorpora los huevos duros picados y las aceitunas.",
+            "Añade 500g de carne picada y cocina hasta que esté bien dorada.",
+            "Incorpora 2 huevos duros picados y aceitunas al gusto.",
             "Agrega comino, sal y pimienta al gusto.",
             "Rellena las empanadas con la mezcla y ciérralas.",
             "Hornea durante 20 minutos a 180 grados."
         ],
         "valorNutricional": [
             "500 calorías"       
-        ]
+        ],
+        "imagen": "./imagenes/empanadas.jpg"
     },
     "milanesa": {
         "nombre": "Milanesas",
         "ingredientes": [
-            "4 filetes de carne de res o pollo",
-            "1 huevo",
+            "Filetes de carne o pollo",
+            "Huevo",
             "Pan rallado",
-            "Sal y pimienta",
+            "Sal",
+            "Pimienta",
             "Aceite para freír"
         ],
         "instrucciones": [
-            "Bate el huevo con sal y pimienta.",
+            "Bate 1 huevo con sal y pimienta.",
             "Pasa los filetes por el huevo batido y luego por el pan rallado.",
             "Fríe en aceite caliente hasta que estén dorados.",
             "Sirve con puré de papas o ensalada."
         ],
         "valorNutricional": [
             "400 calorías"       
-        ]
+        ],         
+        "imagen": "./imagenes/milanesas.jpg"
     },
     "asado": {
         "nombre": "Asado",
@@ -95,7 +103,8 @@
         ],
         "valorNutricional": [
             "450 calorías"       
-        ]
+        ],
+        "imagen": "./imagenes/asado.webp"
     },
     "choripán": {
         "nombre": "Choripán",
@@ -111,21 +120,23 @@
         ],
         "valorNutricional": [
             "320 calorías"       
-        ]
+        ],
+        "imagen": "./imagenes/choripan.jpg"
     },
     "locro": {
         "nombre": "Locro",
         "ingredientes": [
-            "500g de maíz blanco",
-            "500g de carne de cerdo",
-            "500g de carne de res",
-            "1 cebolla",
-            "1 zapallo",
-            "2 papas",
-            "Sal y pimienta"
+            "Maíz blanco",
+            "Carne de cerdo",
+            "Carne de res",
+            "Cebolla",
+            "Zapallo",
+            "Papas",
+            "Sal",
+            "Pimienta"
         ],
         "instrucciones": [
-            "Cocina el maíz en agua durante 2 horas.",
+            "Cocina 500g de maíz en agua durante 2 horas.",
             "En una olla grande, cocina las carnes con agua, sal y pimienta.",
             "Añade la cebolla, el zapallo y las papas cortadas.",
             "Cocina hasta que los ingredientes estén tiernos.",
@@ -133,27 +144,7 @@
         ],
         "valorNutricional": [
             "300 calorías"       
-        ]
-    },
-    "empanadas salteñas": {
-        "nombre": "Empanadas Salteñas",
-        "ingredientes": [
-            "Masa para empanadas",
-            "500g de carne de res",
-            "1 cebolla",
-            "Papa",
-            "Aceitunas",
-            "Comino, ají molido, sal y pimienta"
         ],
-        "instrucciones": [
-            "Sofríe la cebolla en aceite.",
-            "Agrega la carne picada, las papas y las aceitunas.",
-            "Sazona con comino, ají, sal y pimienta.",
-            "Rellena las empanadas y ciérralas.",
-            "Hornea a 180 grados durante 25 minutos."
-        ],
-        "valorNutricional": [
-            "250 calorías"
-        ]
+        "imagen": "./imagenes/locro.jpg"
     }
 }

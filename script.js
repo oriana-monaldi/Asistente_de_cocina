@@ -1,22 +1,21 @@
 let recetas = {};
 let heladera = [
-  "Manzanas",
-  "Masa quebrada",
+  "Manzanas", 
+  "Masa quebrada", 
   "Huevo",
-  "200g de pasta",
-  "400g de tomate triturado",
-  "Un diente de ajo",
-  "Aceite de oliva",
-  "Dos unidades manzanas", 
-  "Una unidad masa quebrada", 
-  "Una unidad huevo",
-  "Sal y pimienta",
   "Masa para empanadas",
-  "500g de carne picada",
-  "1 cebolla",
-  "2 huevos duros",
+  "Carne picada",
+  "Cebolla",
+  "Huevos duros",
   "Aceitunas verdes",
-  "Comino, sal y pimienta"
+  "Comino",
+  "Sal",
+  "Pimienta",
+  "Costillas de carne",
+  "Chorizos",
+  "Morcillas",
+  "Sal gruesa",
+  "Carbón"
 ];
 
 let ultimaRecetaBuscada = null;
@@ -230,6 +229,9 @@ function speakAndListen(text) {
 function renderRecipeDisplay(receta) {
   let recetaHTML = `<h3>Receta de ${receta.nombre}</h3>
     <p>Contiene ${receta.valorNutricional}</p>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <img src="${receta.imagen}" alt="${receta.nombre}" style="max-width: 90%; height: auto; border-radius: 8px;">
+    </div>
     <h4>Ingredientes:</h4>
     <ul>
         ${receta.ingredientes
@@ -245,6 +247,8 @@ function renderRecipeDisplay(receta) {
 
   showMessage(recetaHTML, "assistant-message", true);
 }
+
+
 
 async function leerRecetaCompleta(receta) {
   try {
@@ -335,19 +339,6 @@ if (recetasDisponibles.length > 0) {
     );
     currentState = "initial";
     askIfNeedMore();
-  }
-}
-
-function handleAvailableRecipeState(resultado) {
-  const recetaSeleccionada = Object.values(recetas).find((receta) => 
-    receta.nombre.toLowerCase().includes(resultado.toLowerCase())
-  );
-
-  if (recetaSeleccionada) {
-    mostrarReceta(recetaSeleccionada);
-  } else {
-    speakAndListen("No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.");
-    showMessage("No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.", "assistant-message");
   }
 }
 
@@ -730,6 +721,9 @@ function mostrarDetallesReceta(receta) {
       <h3>${receta.nombre}</h3>
       <p><strong>Ingredientes:</strong></p>
       <ul>${receta.ingredientes.map(ing => `<li>${ing}</li>`).join('')}</ul>
+          <div style="text-align: center; margin-bottom: 20px;">
+      <img src="${receta.imagen}" alt="${receta.nombre}" style="max-width: 90%; height: auto; border-radius: 8px;">
+    </div>
       <p><strong>Preparación:</strong></p>
       <ol>${receta.pasos.map(paso => `<li>${paso}</li>`).join('')}</ol>
       <p>< ${receta.valorNutricional || 'No disponible'}</p>
