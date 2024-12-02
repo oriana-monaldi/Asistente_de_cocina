@@ -3,19 +3,17 @@ let heladera = [
   "Manzanas", 
   "Masa quebrada", 
   "Huevo",
-  "Masa para empanadas",
-  "Carne picada",
-  "Cebolla",
-  "Huevos duros",
-  "Aceitunas verdes",
-  "Comino",
+  "Pasta",
+  "Tomate triturado",
+  "Ajo, Sal y Pimienta",
+  "Aceite de oliva",
+  "Papas",
+  "Aceite para freír",
   "Sal",
-  "Pimienta",
-  "Costillas de carne",
-  "Chorizos",
-  "Morcillas",
-  "Sal gruesa",
-  "Carbón"
+  "Papas",
+  "Huevos",
+  "Cebolla",
+  "Aceite",
 ];
 
 let ultimaRecetaBuscada = null;
@@ -35,7 +33,7 @@ document
 
   function startConversation() {
     const initialMessage = 
-      "Puedes pedirme una 'Receta específica', 'Recetas disponibles', 'Mostrar heladera', o 'Salir'.";
+      " Hola! Soy tu asistente de heladera. Puedes pedirme una 'Receta específica', 'Recetas disponibles', 'Mostrar heladera', o 'Salir'.";
     speakAndListen(initialMessage);
     showMessage(initialMessage, "assistant-message");
     currentState = "initial";
@@ -100,7 +98,7 @@ function handleInitialState(resultado) {
     "recetas disponibles",
     "que puedo cocinar",
     "listar recetas", 
-     "dame la lista de recetas",
+    "dame la lista de recetas",
     "que hay para cocinar",
     "ver recetas",
     "mostrar recetas",
@@ -227,27 +225,29 @@ function speakAndListen(text) {
 }
 
 function renderRecipeDisplay(receta) {
-  let recetaHTML = `<h3>Receta de ${receta.nombre}</h3>
-    <p>Contiene ${receta.valorNutricional}</p>
-    <div style="text-align: center; margin-bottom: 20px;">
-      <img src="${receta.imagen}" alt="${receta.nombre}" style="max-width: 90%; height: auto; border-radius: 8px;">
+  let recetaHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h3>${receta.nombre}</h3>
+      <p style="font-style: italic;">${receta.valorNutricional}</p>
     </div>
-    <h4>Ingredientes:</h4>
-    <ul>
-        ${receta.ingredientes
-          .map((ingrediente) => `<p>${ingrediente}</p>`)
-          .join("")}
-    </ul>
-    <h4>Instrucciones:</h4>
-    <ol>
-        ${receta.instrucciones
-          .map((instruccion) => `<p>${instruccion}</p>`)
-          .join("")}
-    </ol>`;
-
+    <div style="display: flex; gap: 20px;">
+      <div style="width: 50%;">
+        <img src="${receta.imagen}" alt="${receta.nombre}" style="width: 100%; height: auto; border-radius: 8px;">
+      </div>
+      <div style="width: 50%;">
+        <h4>Ingredientes:</h4>
+        <ul>
+          ${receta.ingredientes.map((ingrediente) => `<li>${ingrediente}</li>`).join('')}
+        </ul>
+        <h4>Instrucciones:</h4>
+        <ol>
+          ${receta.instrucciones.map((instruccion) => `<li>${instruccion}</li>`).join('')}
+        </ol>
+      </div>
+    </div>
+  `;
   showMessage(recetaHTML, "assistant-message", true);
 }
-
 
 
 async function leerRecetaCompleta(receta) {
@@ -301,9 +301,7 @@ if (recetasDisponibles.length > 0) {
             .map((receta) => `<p> ${receta.nombre}</p>`)
             .join("")}
       </p>
-    <p>¿Cuál de estas recetas te gustaría preparar?</p>
-`;
-
+    <p>¿Cuál de estas recetas te gustaría preparar?</p>`
       showMessage(mensajeHTML, "assistant-message", true);
       const speak = (text) =>
         new Promise((resolve) => {
@@ -722,8 +720,7 @@ function mostrarDetallesReceta(receta) {
       <p><strong>Ingredientes:</strong></p>
       <ul>${receta.ingredientes.map(ing => `<li>${ing}</li>`).join('')}</ul>
           <div style="text-align: center; margin-bottom: 20px;">
-      <img src="${receta.imagen}" alt="${receta.nombre}" style="max-width: 90%; height: auto; border-radius: 8px;">
-    </div>
+          <img src="${receta.imagen}" alt="${receta.nombre}" style="width: 30%; height: auto; border-radius: 8px;">    </div>
       <p><strong>Preparación:</strong></p>
       <ol>${receta.pasos.map(paso => `<li>${paso}</li>`).join('')}</ol>
       <p>< ${receta.valorNutricional || 'No disponible'}</p>
