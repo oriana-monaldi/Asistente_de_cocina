@@ -1,7 +1,7 @@
 let recetas = {};
 let heladera = [
-  "Manzanas", 
-  "Masa quebrada", 
+  "Manzanas",
+  "Masa quebrada",
   "Huevo",
   "Pasta",
   "Tomate triturado",
@@ -31,13 +31,13 @@ document
   .getElementById("startButton")
   .addEventListener("click", startConversation);
 
-  function startConversation() {
-    const initialMessage = 
-      " Hola! Soy tu asistente de heladera. Puedes pedirme una 'Receta específica', 'Recetas disponibles', 'Mostrar heladera', o 'Salir'.";
-    speakAndListen(initialMessage);
-    showMessage(initialMessage, "assistant-message");
-    currentState = "initial";
-  }
+function startConversation() {
+  const initialMessage =
+    " Hola! Soy tu asistente de heladera. Puedes pedirme una 'Receta específica', 'Recetas disponibles', 'Mostrar heladera', o 'Salir'.";
+  speakAndListen(initialMessage);
+  showMessage(initialMessage, "assistant-message");
+  currentState = "initial";
+}
 
 function startRecognition() {
   if (!window.speechSynthesis.speaking && !isListening) {
@@ -97,7 +97,7 @@ function handleInitialState(resultado) {
   const availableRecipesCommands = [
     "recetas disponibles",
     "que puedo cocinar",
-    "listar recetas", 
+    "listar recetas",
     "dame la lista de recetas",
     "que hay para cocinar",
     "ver recetas",
@@ -116,12 +116,12 @@ function handleInitialState(resultado) {
     "adiós",
     "adios",
     "chau",
-    "hasta luego"
+    "hasta luego",
   ];
 
-  if (exitCommands.some(cmd => resultado.includes(cmd))) {
+  if (exitCommands.some((cmd) => resultado.includes(cmd))) {
     window.speechSynthesis.cancel();
-        try {
+    try {
       recognition.stop();
     } catch (error) {
       console.error("Error al detener el reconocimiento:", error);
@@ -135,13 +135,18 @@ function handleInitialState(resultado) {
     currentState = "exit";
     isListening = false;
 
-    const utterance = new SpeechSynthesisUtterance("¡Gracias por usar el asistente de cocina! ¡Hasta pronto!");
+    const utterance = new SpeechSynthesisUtterance(
+      "¡Gracias por usar el asistente de cocina! ¡Hasta pronto!"
+    );
     utterance.lang = "es-ES";
     utterance.onend = () => {
       recognition.stop();
     };
     window.speechSynthesis.speak(utterance);
-    showMessage("¡Gracias por usar el asistente de cocina! ¡Hasta pronto!", "assistant-message");
+    showMessage(
+      "¡Gracias por usar el asistente de cocina! ¡Hasta pronto!",
+      "assistant-message"
+    );
 
     return;
   }
@@ -232,23 +237,28 @@ function renderRecipeDisplay(receta) {
     </div>
     <div style="display: flex; gap: 20px;">
       <div style="width: 50%;">
-        <img src="${receta.imagen}" alt="${receta.nombre}" style="width: 100%; height: auto; border-radius: 8px;">
+        <img src="${receta.imagen}" alt="${
+    receta.nombre
+  }" style="width: 100%; height: auto; border-radius: 8px;">
       </div>
       <div style="width: 50%;">
         <h4>Ingredientes:</h4>
         <ul>
-          ${receta.ingredientes.map((ingrediente) => `<li>${ingrediente}</li>`).join('')}
+          ${receta.ingredientes
+            .map((ingrediente) => `<li>${ingrediente}</li>`)
+            .join("")}
         </ul>
         <h4>Instrucciones:</h4>
         <ol>
-          ${receta.instrucciones.map((instruccion) => `<li>${instruccion}</li>`).join('')}
+          ${receta.instrucciones
+            .map((instruccion) => `<li>${instruccion}</li>`)
+            .join("")}
         </ol>
       </div>
     </div>
   `;
   showMessage(recetaHTML, "assistant-message", true);
 }
-
 
 async function leerRecetaCompleta(receta) {
   try {
@@ -293,48 +303,38 @@ function mostrarRecetasDisponibles() {
       return verificarIngredientes(receta.ingredientes).todoPresente;
     });
 
-if (recetasDisponibles.length > 0) {
-  let mensajeHTML = `
-    <h3>Con tus ingredientes actuales puedes preparar:</h3>
-      <p>
+    if (recetasDisponibles.length > 0) {
+      let mensajeHTML = `
+        <h3>Con tus ingredientes actuales puedes preparar:</h3>
+        <p>
           ${recetasDisponibles
-            .map((receta) => `<p> ${receta.nombre}</p>`)
+            .map((receta) => `<p>${receta.nombre}</p>`)
             .join("")}
-      </p>
-    <p>¿Cuál de estas recetas te gustaría preparar?</p>`
+        </p>
+        <p>¿Cuál de estas recetas te gustaría preparar?</p>`;
       showMessage(mensajeHTML, "assistant-message", true);
-      const speak = (text) =>
-        new Promise((resolve) => {
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = "es-ES";
-          utterance.onend = resolve;
-          window.speechSynthesis.speak(utterance);
-        });
 
-      speak("Con tus ingredientes actuales puedes preparar:");
-      recetasDisponibles.forEach(async (receta) => {
-        await speak(receta.nombre);
-      });
+      let mensajeVoz = "Con tus ingredientes actuales puedes preparar: ";
+      mensajeVoz += recetasDisponibles
+        .map((receta) => receta.nombre)
+        .join(", ");
+      mensajeVoz += ". ¿Cuál de estas recetas te gustaría preparar?";
+
+      speakAndListen(mensajeVoz);
       currentState = "selecting_available_recipe";
-      speakAndListen("¿Cuál de estas recetas te gustaría preparar?");
     } else {
-      speakAndListen(
-        "Lo siento, no hay recetas disponibles con los ingredientes actuales de tu heladera."
-      );
-      showMessage(
-        "Lo siento, no hay recetas disponibles con los ingredientes actuales de tu heladera.",
-        "assistant-message"
-      );
+      const mensaje =
+        "Lo siento, no hay recetas disponibles con los ingredientes actuales de tu heladera.";
+      speakAndListen(mensaje);
+      showMessage(mensaje, "assistant-message");
       currentState = "initial";
       askIfNeedMore();
     }
   } catch (error) {
     console.error("Error al mostrar recetas disponibles:", error);
-    speakAndListen("Hubo un error al buscar las recetas disponibles.");
-    showMessage(
-      "Hubo un error al buscar las recetas disponibles.",
-      "assistant-message"
-    );
+    const mensajeError = "Hubo un error al buscar las recetas disponibles.";
+    speakAndListen(mensajeError);
+    showMessage(mensajeError, "assistant-message");
     currentState = "initial";
     askIfNeedMore();
   }
@@ -435,10 +435,10 @@ async function mostrarHeladera() {
 
 function askIfNeedMore() {
   speakAndListen(
-    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', 'conocer recetas', o 'salir'."
+    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', o 'salir'."
   );
   showMessage(
-    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', 'conocer recetas', o 'salir'.",
+    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', o 'salir'.",
     "assistant-message"
   );
 }
@@ -581,7 +581,7 @@ function handleRecipeConfirmationState(resultado) {
 }
 
 function handleAvailableRecipeState(resultado) {
-  const recetaSeleccionada = Object.values(recetas).find((receta) => 
+  const recetaSeleccionada = Object.values(recetas).find((receta) =>
     receta.nombre.toLowerCase().includes(resultado.toLowerCase())
   );
 
@@ -589,8 +589,13 @@ function handleAvailableRecipeState(resultado) {
     mostrarReceta(recetaSeleccionada);
     currentState = "initial";
   } else {
-    speakAndListen("No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.");
-    showMessage("No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.", "assistant-message");
+    speakAndListen(
+      "No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné."
+    );
+    showMessage(
+      "No encontré esa receta. Por favor, nombra una de las recetas disponibles que mencioné.",
+      "assistant-message"
+    );
   }
 }
 
@@ -712,18 +717,19 @@ function verificarIngredientes(ingredientesNecesarios) {
   };
 }
 
-// renderiza en el html las recetas y valor nutricoinal 
+// renderiza en el html las recetas y valor nutricoinal
 function mostrarDetallesReceta(receta) {
-  
   const detallesReceta = `
       <h3>${receta.nombre}</h3>
       <p><strong>Ingredientes:</strong></p>
-      <ul>${receta.ingredientes.map(ing => `<li>${ing}</li>`).join('')}</ul>
+      <ul>${receta.ingredientes.map((ing) => `<li>${ing}</li>`).join("")}</ul>
           <div style="text-align: center; margin-bottom: 20px;">
-          <img src="${receta.imagen}" alt="${receta.nombre}" style="width: 30%; height: auto; border-radius: 8px;">    </div>
+          <img src="${receta.imagen}" alt="${
+    receta.nombre
+  }" style="width: 30%; height: auto; border-radius: 8px;">    </div>
       <p><strong>Preparación:</strong></p>
-      <ol>${receta.pasos.map(paso => `<li>${paso}</li>`).join('')}</ol>
-      <p>< ${receta.valorNutricional || 'No disponible'}</p>
+      <ol>${receta.pasos.map((paso) => `<li>${paso}</li>`).join("")}</ol>
+      <p>< ${receta.valorNutricional || "No disponible"}</p>
   `;
-    document.querySelector('#detalles-receta').innerHTML = detallesReceta;
+  document.querySelector("#detalles-receta").innerHTML = detallesReceta;
 }

@@ -1,247 +1,204 @@
 {
 "tarta de manzana": {
-    "nombre": "Tarta de Manzana",
-    "ingredientes": [
-        "Manzanas", 
-        "Masa quebrada", 
-        "Huevo"
-    ],
-    "instrucciones": [
-        "Precalienta el horno a 180 grados.",
-        "Pela y corta las manzanas en rodajas finas (necesitarás 2 manzanas).",
-        "Coloca la masa quebrada en un molde y pon las manzanas encima.",
-        "Bate 1 huevo y pinta la tarta con él.",
-        "Hornea durante 30 minutos o hasta que esté dorada."
-    ],
-    "valorNutricional": [
-        "300 calorías"       
-    ],
-    "imagen": "./imagenes/tartaManzana.jpg"
+"nombre": "Tarta de Manzana",
+"ingredientes": ["Manzanas", "Masa quebrada", "Huevo"],
+"instrucciones": [
+    "Precalienta el horno a 180 grados.",
+    "Pela y corta las manzanas en rodajas finas (necesitarás 2 manzanas).",
+    "Coloca la masa quebrada en un molde y pon las manzanas encima.",
+    "Bate un huevo y pinta la tarta con él.",
+    "Hornea durante 30 minutos o hasta que esté dorada."
+],
+"valorNutricional": ["300 calorías"],
+"imagen": "./imagenes/tartaManzana.jpg"
 },
 "fideos con tuco": {
-    "nombre": "Fideos con tuco",
-    "ingredientes": [
-        "Pasta",
-        "Tomate triturado",
-        "Ajo, Sal y Pimienta",
-        "Aceite de oliva"
-    ],
-    "instrucciones": [
-        "Cuece la pasta según las instrucciones del paquete.",
-        "Mientras tanto, calienta el aceite y sofríe 1 diente de ajo picado.",
-        "Añade 400g de tomate triturado y cocina durante 10 minutos.",
-        "Agrega sal y pimienta al gusto.",
-        "Sirve la pasta con la salsa de tomate."
-    ],
-    "valorNutricional": [
-        "400 calorías"       
-    ],        
-    "imagen": "./imagenes/pasta.jpg"
+"nombre": "Fideos con tuco",
+"ingredientes": [
+    "Pasta",
+    "Tomate triturado",
+    "Ajo, Sal y Pimienta",
+    "Aceite de oliva"
+],
+"instrucciones": [
+    "Cuece la pasta según las instrucciones del paquete.",
+    "Mientras tanto, calienta el aceite y sofríe 1 diente de ajo picado.",
+    "Añade 400g de tomate triturado y cocina durante 10 minutos.",
+    "Agrega sal y pimienta al gusto.",
+    "Sirve la pasta con la salsa de tomate."
+],
+"valorNutricional": ["400 calorías"],
+"imagen": "./imagenes/pasta.jpg"
 },
 "empanadas": {
-    "nombre": "Empanadas",
-    "ingredientes": [
-        "Masa para empanadas",
-        "Carne picada",
-        "Cebolla",
-        "Huevos duros",
-        "Comino, Sal y Pimienta"
-    ],
-    "instrucciones": [
-        "Sofríe la cebolla picada en una sartén con aceite.",
-        "Añade 500g de carne picada y cocina hasta que esté bien dorada.",
-        "Incorpora 2 huevos duros picados y aceitunas al gusto.",
-        "Agrega comino, sal y pimienta al gusto.",
-        "Rellena las empanadas con la mezcla y ciérralas.",
-        "Hornea durante 20 minutos a 180 grados."
-    ],
-    "valorNutricional": [
-        "500 calorías"       
-    ],
-    "imagen": "./imagenes/empanadas.jpg"
-    },
-        "milanesa": {
-        "nombre": "Milanesas",
-        "ingredientes": [
-            "Filetes de carne o pollo",
-            "Huevo",
-            "Pan rallado",
-            "Sal y Pimienta",
-            "Aceite para freír"
-        ],
-        "instrucciones": [
-            "Bate 1 huevo con sal y pimienta.",
-            "Pasa los filetes por el huevo batido y luego por el pan rallado.",
-            "Fríe en aceite caliente hasta que estén dorados.",
-            "Sirve con puré de papas o ensalada."
-        ],
-        "valorNutricional": [
-            "400 calorías"       
-        ],         
-        "imagen": "./imagenes/milanesas.jpg"
-    },
-    "asado": {
-        "nombre": "Asado",
-        "ingredientes": [
-            "Costillas de carne",
-            "Chorizos",
-            "Morcillas",
-            "Sal gruesa",
-            "Carbón"
-        ],
-        "instrucciones": [
-        "Prepara el fuego en una parrilla con carbón.",
-        "Coloca las carnes en la parrilla y sazónalas con sal gruesa.",
-        "Cocina durante 1-2 horas, volteando las piezas de carne.",
-        "Sirve con ensaladas y papas."
-        ],
-        "valorNutricional": [
-            "450 calorías"       
-        ],
-        "imagen": "./imagenes/asado.webp"
-    },
-    "choripán": {
-        "nombre": "Choripán",
-        "ingredientes": [
-        "Chorizos",
-        "Pan",
-        "Chimichurri"
-    ],
-    "instrucciones": [
-        "Asa los chorizos en la parrilla.",
-        "Coloca los chorizos en panes y añade chimichurri al gusto.",
-        "Sirve caliente."
-    ],
-    "valorNutricional": [
-        "320 calorías"       
-    ],
-    "imagen": "./imagenes/choripan.jpg"
+"nombre": "Empanadas",
+"ingredientes": [
+    "Masa para empanadas",
+    "Carne picada",
+    "Cebolla",
+    "Huevos duros",
+    "Comino, Sal y Pimienta"
+],
+"instrucciones": [
+    "Sofríe la cebolla picada en una sartén con aceite.",
+    "Añade 500g de carne picada y cocina hasta que esté bien dorada.",
+    "Incorpora dos huevos duros picados y aceitunas al gusto.",
+    "Agrega comino, sal y pimienta al gusto.",
+    "Rellena las empanadas con la mezcla y ciérralas.",
+    "Hornea durante 20 minutos a 180 grados."
+],
+"valorNutricional": ["500 calorías"],
+"imagen": "./imagenes/empanadas.jpg"
+},
+"milanesa": {
+"nombre": "Milanesas",
+"ingredientes": [
+    "Filetes de carne o pollo",
+    "Huevo",
+    "Pan rallado",
+    "Sal y Pimienta",
+    "Aceite para freír"
+],
+"instrucciones": [
+    "Bate un huevo con sal y pimienta.",
+    "Pasa los filetes por el huevo batido y luego por el pan rallado.",
+    "Fríe en aceite caliente hasta que estén dorados.",
+    "Sirve con puré de papas o ensalada."
+],
+"valorNutricional": ["400 calorías"],
+"imagen": "./imagenes/milanesas.jpg"
+},
+"asado": {
+"nombre": "Asado",
+"ingredientes": [
+    "Costillas de carne",
+    "Chorizos",
+    "Morcillas",
+    "Sal gruesa",
+    "Carbón"
+],
+"instrucciones": [
+    "Prepara el fuego en una parrilla con carbón.",
+    "Coloca las carnes en la parrilla y sazónalas con sal gruesa.",
+    "Cocina durante 1 o 2 horas, volteando las piezas de carne.",
+    "Sirve con ensaladas y papas."
+],
+"valorNutricional": ["450 calorías"],
+"imagen": "./imagenes/asado.webp"
+},
+"choripán": {
+"nombre": "Choripán",
+"ingredientes": ["Chorizos", "Pan", "Chimichurri"],
+"instrucciones": [
+    "Asa los chorizos en la parrilla.",
+    "Coloca los chorizos en panes y añade chimichurri al gusto.",
+    "Sirve caliente."
+],
+"valorNutricional": ["320 calorías"],
+"imagen": "./imagenes/choripan.jpg"
 },
 "locro": {
-    "nombre": "Locro",
-    "ingredientes": [
-        "Maíz blanco",
-        "Carne de cerdo",
-        "Carne de res",
-        "Cebolla",
-        "Zapallo",
-        "Papas , Sal y Pimienta "
-    ],
-    "instrucciones": [
-        "Cocina 500g de maíz en agua durante 2 horas.",
-        "En una olla grande, cocina las carnes con agua, sal y pimienta.",
-        "Añade la cebolla, el zapallo y las papas cortadas.",
-        "Cocina hasta que los ingredientes estén tiernos.",
-        "Sirve caliente."
-    ],
-    "valorNutricional": [
-        "300 calorías"       
-    ],
-    "imagen": "./imagenes/locro.jpg"
+"nombre": "Locro",
+"ingredientes": [
+    "Maíz blanco",
+    "Carne de cerdo",
+    "Carne de res",
+    "Cebolla",
+    "Zapallo",
+    "Papas , Sal y Pimienta "
+],
+"instrucciones": [
+    "Cocina 500g de maíz en agua durante 2 horas.",
+    "En una olla grande, cocina las carnes con agua, sal y pimienta.",
+    "Añade la cebolla, el zapallo y las papas cortadas.",
+    "Cocina hasta que los ingredientes estén tiernos.",
+    "Sirve caliente."
+],
+"valorNutricional": ["300 calorías"],
+"imagen": "./imagenes/locro.jpg"
 },
-    "papas fritas": {
-        "nombre": "Papas Fritas",
-        "ingredientes": [
-            "Papas",
-            "Aceite para freír",
-            "Sal"
-        ],
-        "instrucciones": [
-            "Pela y corta las papas en tiras.",
-            "Calienta abundante aceite en una sartén.",
-            "Fríe las papas hasta que estén doradas y crujientes.",
-            "Escurre sobre papel absorbente y agrega sal al gusto."
-        ],
-        "valorNutricional": [
-            "300 calorías"
-        ],
-        "imagen": "./imagenes/papasFritas.avif"
-    },
-    "tarta de frutilla": {
-        "nombre": "Tarta de Frutilla",
-        "ingredientes": [
-            "Masa quebrada",
-            "Crema pastelera",
-            "Frutillas frescas",
-            "Gelatina de frutilla"
-        ],
-        "instrucciones": [
-            "Prepara y hornea la masa quebrada.",
-            "Rellena la masa con crema pastelera.",
-            "Cubre con frutillas cortadas en láminas.",
-            "Añade una capa de gelatina preparada y deja enfriar en la heladera.",
-            "Sirve fría."
-        ],
-        "valorNutricional": [
-            "350 calorías"
-        ],
-        "imagen": "./imagenes/tartaFrutilla.jpg"
-    },
-        "lemon pie": {
-            "nombre": "Lemon Pie",
-            "ingredientes": [
-                "Masa quebrada",
-                "Leche condensada",
-                "Jugo de limón",
-                "Claras de huevo",
-                "Azúcar"
-            ],
-            "instrucciones": [
-                "Prepara y hornea la masa quebrada.",
-                "Mezcla 1 lata de leche condensada con el jugo de 2 limones.",
-                "Rellena la masa con la mezcla.",
-                "Bate claras de huevo con azúcar para hacer un merengue y cubre el pie.",
-                "Hornea hasta que el merengue esté dorado."
-            ],
-            "valorNutricional": [
-                "400 calorías"
-            ],
-            "imagen": "./imagenes/lemonPie.jpg"
-            },
-            "guiso de lentejas": {
-                "nombre": "Guiso de Lentejas",
-                "ingredientes": [
-                    "Lentejas",
-                    "Carne de res",
-                    "Chorizo colorado",
-                    "Cebolla",
-                    "Zanahoria",
-                    "Papa",
-                    "Tomate",
-                    "Caldo"
-                ],
-                "instrucciones": [
-                    "Remoja las lentejas por 8 horas.",
-                    "Sofríe la cebolla y zanahoria en una olla.",
-                    "Añade la carne y el chorizo, cocina hasta dorar.",
-                    "Agrega las lentejas, papas, tomate y caldo.",
-                    "Cocina a fuego lento hasta que las lentejas estén tiernas."
-                ],
-                "valorNutricional": [
-                    "400 calorías"
-                ],
-                "imagen": "./imagenes/guisoLentejas.jpg"
-            },
-            "tortilla de papa": {
-                "nombre": "Tortilla de Papa",
-                "ingredientes": [
-                    "Papas",
-                    "Huevos",
-                    "Cebolla",
-                    "Aceite",
-                    "Sal"
-                ],
-                "instrucciones": [
-                    "Corta las papas y la cebolla en rodajas finas.",
-                    "Fríelas en una sartén con aceite hasta que estén tiernas.",
-                    "Bate los huevos con sal y mezcla con las papas.",
-                    "Vierte la mezcla en la sartén y cocina a fuego bajo.",
-                    "Voltea la tortilla y cocina por ambos lados."
-                ],
-                "valorNutricional": [
-                    "350 calorías"
-                ],
-                "imagen": "./imagenes/tortillaDePapa.jpeg"
-        }
-    }
-
+"papas fritas": {
+"nombre": "Papas Fritas",
+"ingredientes": ["Papas", "Aceite para freír", "Sal"],
+"instrucciones": [
+    "Pela y corta las papas en tiras.",
+    "Calienta abundante aceite en una sartén.",
+    "Fríe las papas hasta que estén doradas y crujientes.",
+    "Escurre sobre papel absorbente y agrega sal al gusto."
+],
+"valorNutricional": ["300 calorías"],
+"imagen": "./imagenes/papasFritas.avif"
+},
+"tarta de frutilla": {
+"nombre": "Tarta de Frutilla",
+"ingredientes": [
+    "Masa quebrada",
+    "Crema pastelera",
+    "Frutillas frescas",
+    "Gelatina de frutilla"
+],
+"instrucciones": [
+    "Prepara y hornea la masa quebrada.",
+    "Rellena la masa con crema pastelera.",
+    "Cubre con frutillas cortadas en láminas.",
+    "Añade una capa de gelatina preparada y deja enfriar en la heladera.",
+    "Sirve fría."
+],
+"valorNutricional": ["350 calorías"],
+"imagen": "./imagenes/tartaFrutilla.jpg"
+},
+"lemon pie": {
+"nombre": "Lemon Pie",
+"ingredientes": [
+    "Masa quebrada",
+    "Leche condensada",
+    "Jugo de limón",
+    "Claras de huevo",
+    "Azúcar"
+],
+"instrucciones": [
+    "Prepara y hornea la masa quebrada.",
+    "Mezcla 1 lata de leche condensada con el jugo de 2 limones.",
+    "Rellena la masa con la mezcla.",
+    "Bate claras de huevo con azúcar para hacer un merengue y cubre el pie.",
+    "Hornea hasta que el merengue esté dorado."
+],
+"valorNutricional": ["400 calorías"],
+"imagen": "./imagenes/lemonPie.jpg"
+},
+"guiso de lentejas": {
+"nombre": "Guiso de Lentejas",
+"ingredientes": [
+    "Lentejas",
+    "Carne de res",
+    "Chorizo colorado",
+    "Cebolla",
+    "Zanahoria",
+    "Papa",
+    "Tomate",
+    "Caldo"
+],
+"instrucciones": [
+    "Remoja las lentejas por 8 horas.",
+    "Sofríe la cebolla y zanahoria en una olla.",
+    "Añade la carne y el chorizo, cocina hasta dorar.",
+    "Agrega las lentejas, papas, tomate y caldo.",
+    "Cocina a fuego lento hasta que las lentejas estén tiernas."
+],
+"valorNutricional": ["400 calorías"],
+"imagen": "./imagenes/guisoLentejas.jpg"
+},
+"tortilla de papa": {
+"nombre": "Tortilla de Papa",
+"ingredientes": ["Papas", "Huevos", "Cebolla", "Aceite", "Sal"],
+"instrucciones": [
+    "Corta las papas y la cebolla en rodajas finas.",
+    "Fríelas en una sartén con aceite hasta que estén tiernas.",
+    "Bate los huevos con sal y mezcla con las papas.",
+    "Vierte la mezcla en la sartén y cocina a fuego bajo.",
+    "Voltea la tortilla y cocina por ambos lados."
+],
+"valorNutricional": ["350 calorías"],
+"imagen": "./imagenes/tortillaDePapa.jpeg"
+}
+}
