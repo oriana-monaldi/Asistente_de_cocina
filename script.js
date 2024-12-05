@@ -10,7 +10,6 @@ let heladera = [
   "Papas",
   "Aceite para freír",
   "Sal",
-  "Papas",
   "Huevos",
   "Cebolla",
   "Aceite",
@@ -196,37 +195,6 @@ function mostrarReceta(receta) {
     currentState = "confirming_recipe_without_ingredients";
     ultimaRecetaBuscada = receta;
   }
-}
-
-function speakAndListen(text) {
-  return new Promise((resolve) => {
-    if (isListening) {
-      recognition.stop();
-      isListening = false;
-    }
-
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "es-ES";
-
-    utterance.onstart = () => {
-      if (isListening) {
-        recognition.stop();
-        isListening = false;
-      }
-    };
-
-    utterance.onend = () => {
-      setTimeout(() => {
-        if (!window.speechSynthesis.speaking) {
-          startRecognition();
-        }
-        resolve();
-      }, 200);
-    };
-    window.speechSynthesis.speak(utterance);
-  });
 }
 
 function renderRecipeDisplay(receta) {
@@ -475,6 +443,7 @@ function speakAndListen(text) {
   return new Promise((resolve) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "es-ES";
+    utterance.rate = 1.15;
 
     utterance.onend = () => {
       setTimeout(() => {
