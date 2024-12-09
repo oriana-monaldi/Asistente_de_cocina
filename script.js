@@ -38,7 +38,7 @@ document
 
 function startConversation() {
   const initialMessage =
-    " Hola! Soy tu asistente de heladera. Puedes pedirme 'Buscar receta', 'Recetas disponibles', 'Recetario', 'Mostrar ingredientes', o 'Salir'.";
+    " Hola! Soy tu asistente de heladera. Puedes pedirme 'Buscar receta', 'Recetas disponibles', 'Recetario', 'Mostrar ingredientes', 'Ayuda', o 'Salir'.";
   speakAndListen(initialMessage);
   showMessage(initialMessage, "assistant-message");
   currentState = "initial";
@@ -176,7 +176,9 @@ function handleInitialState(resultado) {
     mostrarHeladera();
   } else if (recetarioCommands.some((cmd) => resultado.includes(cmd))) {
     mostrarRecetario();
-  } else {
+  } else if (helpCommands.some((cmd) => resultado.includes(cmd))) {
+    mostrarAyuda();
+  } else  {
     speakAndListen("No entendí tu solicitud. Por favor, intenta de nuevo.");
     showMessage(
       "No entendí tu solicitud. Por favor, intenta de nuevo.",
@@ -215,7 +217,7 @@ function renderRecipeDisplay(receta) {
       <p style="font-style: italic;">${receta.valorNutricional}</p>
     </div>
     <div style="display: flex; gap: 20px;">
-      <div style="width: 50%;">
+      <div style="width: 380px;", ="heigth: 250px;">
         <img src="${receta.imagen}" alt="${
     receta.nombre
   }" style="width: 100%; height: auto; border-radius: 8px;">
@@ -414,10 +416,10 @@ async function mostrarHeladera() {
 
 function askIfNeedMore() {
   speakAndListen(
-    "¿Necesitas algo más? Puedes decir 'Buscar receta', 'recetas disponibles', 'recetario', 'mostrar ingredientes', o 'Salir'."
+    "¿Necesitas algo más? Puedes decir 'Buscar receta', 'Recetas disponibles', 'Recetario', 'Mostrar ingredientes', 'Ayuda' o 'Salir'."
   );
   showMessage(
-    "¿Necesitas algo más? Puedes decir 'Buscar receta', 'recetas disponibles', 'recetario', 'mostrar ingredientes', o 'Salir'.",
+    "¿Necesitas algo más? Puedes decir 'Buscar receta', 'Recetas disponibles', 'Recetario', 'Mostrar ingredientes', 'Ayuda' o 'Salir'",
     "assistant-message"
   );
 }
@@ -760,3 +762,58 @@ const recetarioCommands = [
   "que recetas hay",
   "mostrar todas las recetas",
 ];
+
+
+//AYUDA
+const helpCommands = [
+  "ayuda",
+  "help",
+  "comandos",
+  "que puedo hacer",
+  "instrucciones",
+  "opciones",
+];
+
+async function mostrarAyuda() {
+  try {
+    const speak = (text) =>
+      new Promise((resolve) => {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "es-ES";
+        utterance.onend = resolve;
+        window.speechSynthesis.speak(utterance);
+      });
+
+    window.speechSynthesis.cancel();
+
+    let mensajeHTML = `
+      <h3>Comandos disponibles:</h3>
+      <ul>
+        <p>Buscar receta:</strong> Buscar una receta por su nombre, conocer sus ingredientes y pasos a seguir.</p>
+        <p><strong>Recetas disponibles:</strong> Posibles recetas a realizar con los ingredientes actuales de la heladera.</p>
+        <p><strong>Recetario:</strong> Consultar todos las recetas cargadas en la heladera.</p>
+        <p><strong>Mostrar ingredientes:</strong> Consultar los ingredientes actuales cargados en la heladera.</p>
+        <p><strong>Ayuda:</strong> Consultar el funcionamiento de los comandos.</p>
+        <p><strong>Salir:</strong> Apagar el asistente.</p>
+      </ul>
+    `;
+
+    showMessage(mensajeHTML, "assistant-message", true);
+
+    await speak("Comandos disponibles:");
+    await speak("Buscar receta: Buscar una receta por su nombre, conocer sus ingredientes y pasos a seguir.");
+    await speak("Recetas disponibles: Posibles recetas a realizar con los ingredientes actuales de la heladera.");
+    await speak("Recetario: Consultar todos las recetas cargadas en la heladera.");
+    await speak("Mostrar ingredientes: Consultar los ingredientes actuales cargados en la heladera.");
+    await speak("Ayuda: Consultar el funcionamiento de los comandos.");
+    await speak("Salir: Apagar el asistente.");
+    
+    currentState = "initial";
+    askIfNeedMore();
+  } catch (error) {
+    console.error("Error al mostrar la ayuda:", error);
+    await speakAndListen("Hubo un problema al mostrar la ayuda.");
+    currentState = "initial";
+    askIfNeedMore();
+  }
+}
