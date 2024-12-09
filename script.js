@@ -1,18 +1,24 @@
 let recetas = {};
 let heladera = [
-  "Manzanas",
-  "Masa quebrada",
-  "Huevo",
-  "Pasta",
-  "Tomate triturado",
-  "Ajo, Sal y Pimienta",
-  "Aceite de oliva",
-  "Papas",
-  "Aceite para freír",
-  "Sal",
-  "Huevos",
+  "Masa para pizza",
+  "Salsa de tomate",
+  "Queso mozzarella",
+  "Orégano",
+  "Lechuga",
+  "Tomate",
   "Cebolla",
-  "Aceite",
+  "Masa para empanadas",
+  "Carne picada",
+  "Cebolla",
+  "Huevos duros",
+  "Aceitunas",
+  "Masa quebrada",
+  "Crema pastelera",
+  "Frutillas frescas",
+  "Gelatina de frutilla",
+  "Huevos",
+  "Leche",
+  "Esencia de vainilla",
 ];
 
 let ultimaRecetaBuscada = null;
@@ -32,7 +38,7 @@ document
 
 function startConversation() {
   const initialMessage =
-    " Hola! Soy tu asistente de heladera. Puedes pedirme una 'Receta específica', 'Recetas disponibles', 'Mostrar heladera', o 'Salir'.";
+    " Hola! Soy tu asistente de heladera. Puedes pedirme 'Buscar receta', 'Recetas disponibles', 'Recetario', 'Mostrar ingredientes', o 'Salir'.";
   speakAndListen(initialMessage);
   showMessage(initialMessage, "assistant-message");
   currentState = "initial";
@@ -90,6 +96,7 @@ function handleInitialState(resultado) {
     "receta específica",
     "receta especifica",
     "buscar receta",
+    "buscar recetas",
     "recetas específicas",
     "quiero una receta",
   ];
@@ -105,6 +112,8 @@ function handleInitialState(resultado) {
   const fridgeCommands = [
     "mostrar heladera",
     "heladera",
+    "mostrar ingredientes",
+    "mostrar ingrediente",
     "ver heladera",
     "que hay en la heladera",
   ];
@@ -165,6 +174,8 @@ function handleInitialState(resultado) {
     currentState = "waiting_recipe";
   } else if (fridgeCommands.some((cmd) => resultado.includes(cmd))) {
     mostrarHeladera();
+  } else if (recetarioCommands.some((cmd) => resultado.includes(cmd))) {
+    mostrarRecetario();
   } else {
     speakAndListen("No entendí tu solicitud. Por favor, intenta de nuevo.");
     showMessage(
@@ -403,10 +414,10 @@ async function mostrarHeladera() {
 
 function askIfNeedMore() {
   speakAndListen(
-    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', o 'salir'."
+    "¿Necesitas algo más? Puedes decir 'Buscar receta', 'recetas disponibles', 'recetario', 'mostrar ingredientes', o 'Salir'."
   );
   showMessage(
-    "¿Necesitas algo más? Puedes decir 'receta específica', 'recetas disponibles', 'mostrar heladera', o 'salir'.",
+    "¿Necesitas algo más? Puedes decir 'Buscar receta', 'recetas disponibles', 'recetario', 'mostrar ingredientes', o 'Salir'.",
     "assistant-message"
   );
 }
@@ -702,3 +713,50 @@ function mostrarDetallesReceta(receta) {
   `;
   document.querySelector("#detalles-receta").innerHTML = detallesReceta;
 }
+
+// Recetario
+async function mostrarRecetario() {
+  try {
+    let recetasArray = Object.values(recetas);
+    let mensaje = `
+            <h3>Recetas disponibles en el recetario:</h3>
+            <p>
+                ${recetasArray
+                  .map((receta) => `<p>${receta.nombre}</p>`)
+                  .join("")}
+            </p>
+        `;
+    showMessage(mensaje, "assistant-message", true);
+    const speak = (text) =>
+      new Promise((resolve) => {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "es-ES";
+        utterance.onend = resolve;
+        window.speechSynthesis.speak(utterance);
+      });
+
+    window.speechSynthesis.cancel();
+    await speak("Recetas disponibles en el recetario:");
+    for (let receta of recetasArray) {
+      await speak(receta.nombre);
+    }
+
+    currentState = "initial";
+    askIfNeedMore();
+  } catch (error) {
+    console.error("Error al mostrar el recetario:", error);
+    await speakAndListen("Hubo un problema al leer el recetario.");
+    currentState = "initial";
+    askIfNeedMore();
+  }
+}
+
+const recetarioCommands = [
+  "mostrar recetario",
+  "ver recetario",
+  "recetario",
+  "lista de recetas",
+  "todas las recetas",
+  "que recetas hay",
+  "mostrar todas las recetas",
+];
